@@ -27,9 +27,8 @@ const Login = () => {
         if (!passwordError) {
             setUserDetails(prev => ({ ...prev, password: "" }));
         }
-
-        // if (userDetails.email == userEmail && userDetails.password == userPassword) {
-        if (userDetails.email == userEmail && userDetails.password == userPassword) {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (emailRegex.text(userDetails.email) && userDetails.password) {
             navigate("/home")
             console.log(userDetails.email);
             console.log(userDetails.password);
@@ -104,7 +103,7 @@ const Login = () => {
                             helperText={errorMsg.passwordError ? 'Password is required' : ''}
                             fullWidth
                         />
-                        <Button sx={{background: 'linear-gradient(90deg, #2196f3, #9c27b0)',}} onClick={handleLogin} variant='contained' size='large'>Login</Button>
+                        <Button sx={{ background: 'linear-gradient(90deg, #2196f3, #9c27b0)', }} onClick={handleLogin} variant='contained' size='large'>Login</Button>
                     </Stack>
                 </Card>
             </Box>
