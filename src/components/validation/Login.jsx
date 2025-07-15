@@ -28,7 +28,8 @@ const Login = () => {
             setUserDetails(prev => ({ ...prev, password: "" }));
         }
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (emailRegex.text(userDetails.email) && userDetails.password) {
+        const passwordRegex =/^[a-zA-Z0-9]$/
+        if (emailRegex.text(userDetails.email) && passwordRegex.test(userDetails.password) ) {
             navigate("/home")
             console.log(userDetails.email);
             console.log(userDetails.password);
