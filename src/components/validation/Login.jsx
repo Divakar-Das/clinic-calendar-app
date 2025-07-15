@@ -28,13 +28,14 @@ const Login = () => {
             setUserDetails(prev => ({ ...prev, password: "" }));
         }
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const passwordRegex =/^[a-zA-Z0-9]$/
-        if (emailRegex.text(userDetails.email) && passwordRegex.test(userDetails.password) ) {
-            navigate("/home")
+        const passwordRegex = /^[a-zA-Z0-9]+$/; // allows multiple alphanumeric characters
+
+        if (emailRegex.test(userDetails.email) && passwordRegex.test(userDetails.password)) {
+            navigate("/home");
             console.log(userDetails.email);
             console.log(userDetails.password);
         } else {
-            alert("Wrong Email or Password")
+            alert("Wrong Email or Password");
         }
 
     };
